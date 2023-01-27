@@ -7,9 +7,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
@@ -32,12 +35,23 @@ public class BDConfig {
         return dataSource;
 
     }
-    @Bean(name="userEntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+    @Bean(name = "userEntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         // TODO: 27/01/2023
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(userDatasource());
+        em.setPackagesToScan("es.fp.edu.conecta2.modelo.user");
+
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+
+        Map<String,Object> properties = new HashMap<>();
+        properties.put("hibernate.hbm2ddl.auto", env.getProperty("persistente.jpa.hibernate.ddl-auto"));
+        properties.put("hibernate.show-sql", env.getProperty("persistente.jpa.show-sql"));
+        properties.put("hibernate.dialect", env.getProperty("persistente.jpa.properties.hibernate.dialect"));
+
+        em.setJpaPropertyMap(properties);
         return em;
     }
-
 
 }
