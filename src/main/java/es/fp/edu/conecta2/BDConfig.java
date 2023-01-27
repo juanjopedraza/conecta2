@@ -35,6 +35,8 @@ public class BDConfig {
     @Bean(name="userEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         // TODO: 27/01/2023
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        return em;
     }
 
 
