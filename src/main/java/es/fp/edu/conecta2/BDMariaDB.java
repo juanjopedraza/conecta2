@@ -22,7 +22,7 @@ import java.util.Map;
         entityManagerFactoryRef = "userEntityManagerFactory",
         transactionManagerRef = "userTransactionManger",
         basePackages = {"es.fp.edu.conecta2.repo.user"})
-public class BDConfig {
+public class BDMariaDB {
     @Autowired
     private Environment env;
 
@@ -62,9 +62,5 @@ public class BDConfig {
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
     }
-
-
-
-
 
 }

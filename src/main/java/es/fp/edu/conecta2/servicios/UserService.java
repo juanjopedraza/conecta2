@@ -5,6 +5,8 @@ import es.fp.edu.conecta2.repo.user.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -13,5 +15,10 @@ public class UserService {
     public void registrar(User t){
         repo.save(t);
     }
+
+    public List<User> listarUser(){
+      return repo.findAll();
+    }
+
 }
 

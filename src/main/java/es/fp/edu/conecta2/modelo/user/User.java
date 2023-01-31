@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="tbl_user")
 public class User {
+
     public Integer getIdUsuario() {
         return idUsuario;
     }

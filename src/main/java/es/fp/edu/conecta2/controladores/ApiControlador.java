@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/databases")
-public class TestController {
+@RequestMapping("/api")
+public class ApiControlador {
     @Autowired
     private AdminService adminService;
 
