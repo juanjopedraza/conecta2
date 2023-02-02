@@ -1,6 +1,6 @@
 package es.fp.edu.conecta2.controladores;
 
-import es.fp.edu.conecta2.repo.user.IUserRepo;
+
 import es.fp.edu.conecta2.servicios.UserService;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class WebControlador {
