@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "ibex", schema = "bolsa", catalog = "")
@@ -97,14 +98,12 @@ public class IbexEntity {
         IbexEntity that = (IbexEntity) o;
 
         if (volume != that.volume) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (open != null ? !open.equals(that.open) : that.open != null) return false;
-        if (high != null ? !high.equals(that.high) : that.high != null) return false;
-        if (low != null ? !low.equals(that.low) : that.low != null) return false;
-        if (close != null ? !close.equals(that.close) : that.close != null) return false;
-        if (adjClose != null ? !adjClose.equals(that.adjClose) : that.adjClose != null) return false;
-
-        return true;
+        if (!Objects.equals(date, that.date)) return false;
+        if (!Objects.equals(open, that.open)) return false;
+        if (!Objects.equals(high, that.high)) return false;
+        if (!Objects.equals(low, that.low)) return false;
+        if (!Objects.equals(close, that.close)) return false;
+        return Objects.equals(adjClose, that.adjClose);
     }
 
     @Override

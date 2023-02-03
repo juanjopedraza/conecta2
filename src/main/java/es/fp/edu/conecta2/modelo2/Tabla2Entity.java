@@ -2,6 +2,8 @@ package es.fp.edu.conecta2.modelo2;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "tabla2", schema = "bolsa", catalog = "")
 public class Tabla2Entity {
@@ -52,9 +54,7 @@ public class Tabla2Entity {
 
         if (id != that.id) return false;
         if (tabla1Id != that.tabla1Id) return false;
-        if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
-
-        return true;
+        return Objects.equals(nombre, that.nombre);
     }
 
     @Override

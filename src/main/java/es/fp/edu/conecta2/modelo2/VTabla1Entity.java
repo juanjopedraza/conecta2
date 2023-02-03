@@ -3,6 +3,8 @@ package es.fp.edu.conecta2.modelo2;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Immutable;
 
+import java.util.Objects;
+
 @Entity
 @Immutable
 @Table(name = "v_tabla1", schema = "bolsa", catalog = "")
@@ -50,10 +52,8 @@ public class VTabla1Entity {
         VTabla1Entity that = (VTabla1Entity) o;
 
         if (id != that.id) return false;
-        if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
-        if (genero != null ? !genero.equals(that.genero) : that.genero != null) return false;
-
-        return true;
+        if (!Objects.equals(nombre, that.nombre)) return false;
+        return Objects.equals(genero, that.genero);
     }
 
     @Override
