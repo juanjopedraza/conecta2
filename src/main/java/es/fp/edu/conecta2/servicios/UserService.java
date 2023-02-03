@@ -12,8 +12,9 @@ public class UserService {
     @Autowired
     private IUserRepo repo;
 
-    public void registrar(User t){
+    public User registrar(User t){
         repo.save(t);
+        return t;
     }
 
     public List<User> listarUser(){
