@@ -14,11 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebControlador {
 
-    @GetMapping ("/")
-    public String inicio() {
 
-        return "inicio";
+    @Autowired
+    private UserService servicioUser;
+    @GetMapping ("/")
+    public String listarUser(Model modelo){
+        modelo.addAttribute("user",servicioUser.listarUser());
+        return "usuarios";
     }
+
+    @GetMapping ("/nuevo")
+    public String nuevoUser(Model modelo){
+        modelo.addAttribute("user",servicioUser.listarUser());
+        return "usuarios";
+    }
+
+    @GetMapping ("/borrar")
+    public String borrarUser(Model modelo){
+        modelo.addAttribute("user",servicioUser.listarUser());
+        return "usuarios";
+    }
+
 
     @RequestMapping("parametros/{a}/{b}/{c}")
     public String parametros( @PathVariable int a,
@@ -54,12 +70,5 @@ public class WebControlador {
         return "opcionales";
     }
 
-    @Autowired
-    private UserService servicioUser;
-    @GetMapping ("/user")
-    public String listarUser(Model modelo){
-        modelo.addAttribute("user",servicioUser.listarUser());
-        return "usuarios";
-    }
 
 }
