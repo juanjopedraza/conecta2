@@ -26,8 +26,8 @@
                 </thead>
                 <tbody>
 
-                    <th><input type="text" name="idUsuario" th:field="*{idUsuario}" class="form-control" placeholder="Nº de usuario" required></th>
-                    <td><input type="text" name="nombres" th:field="*{nombres}" class="form-control" placeholder="Nombre y apellidos" required></td>
+                    <th><input type="text" name="idUsuario" th:field="${user.idUsuario}" class="form-control" placeholder="Nº de usuario" required></th>
+                    <td><input type="text" name="nombres" th:field="${user.nombres}" class="form-control" placeholder="Nombre y apellidos" required></td>
                     <td><button class="btn btn-success" >CREAR</button></td>
 
                 </tbody>
