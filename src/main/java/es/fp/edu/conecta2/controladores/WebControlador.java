@@ -34,6 +34,22 @@ public class WebControlador {
         return "redirect:/";
     }
 
+    @GetMapping ("/editar/{1}")
+    public String editarUser(@PathVariable Integer id, Model modelo){
+
+        modelo.addAttribute("user",
+                servicioUser.buscarId(id).get());
+        return "editar_usuario";
+    }
+
+    @PostMapping ("/actualizar")
+    public String actualizaUser(@ModelAttribute("user") User usuario){
+        servicioUser.guardarId(usuario);
+
+        return "redirect:/";
+    }
+
+
     @GetMapping ("/borrar")
     public String borrarUser(Model modelo){
         modelo.addAttribute("user",servicioUser.listarUser());
