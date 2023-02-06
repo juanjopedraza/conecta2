@@ -1,6 +1,7 @@
 package es.fp.edu.conecta2.controladores;
 
 
+import es.fp.edu.conecta2.modelo.user.User;
 import es.fp.edu.conecta2.servicios.UserService;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,9 @@ public class WebControlador {
 
     @GetMapping ("/nuevo")
     public String nuevoUser(Model modelo){
-        modelo.addAttribute("user",servicioUser.listarUser());
-        return "usuarios";
+        User usuario = new User();
+        modelo.addAttribute("user",usuario);
+        return "nuevo_usuario";
     }
 
     @GetMapping ("/borrar")
