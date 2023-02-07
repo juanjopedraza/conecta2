@@ -31,8 +31,11 @@ public class UserService {
 
 
     public void guardarId(User t) {
-
         int i = repo.actualizaId(t.getIdUsuario(), t.getNombres());
+    }
+
+    public void deleteId(int id) {
+        repo.deleteById(id);
     }
 
     public void actualizaId(User t) {

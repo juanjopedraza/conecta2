@@ -41,19 +41,15 @@ public class WebControlador {
 
     @PostMapping ("/actualizar")
     public String actualizaUser(@ModelAttribute("user") User usuario){
-
         servicioUser.actualizaId(usuario);
-
         return "redirect:/";
     }
-
 
     @GetMapping ("/borrar/{num}")
-    public String borrarUser(Model modelo){
-        /{num}
+    public String borrarUser(@PathVariable int num){
+        servicioUser.deleteId(num);
         return "redirect:/";
     }
-
 
     @RequestMapping("parametros/{a}/{b}/{c}")
     public String parametros( @PathVariable int a,
