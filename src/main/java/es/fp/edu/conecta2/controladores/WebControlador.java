@@ -34,11 +34,11 @@ public class WebControlador {
         return "redirect:/";
     }
 
-    @GetMapping ("/editar/{1}")
-    public String editarUser(@PathVariable Integer id, Model modelo){
+    @RequestMapping ("/editar/{num}")
+    public String editarUser(@PathVariable int num, Model modelo){
 
         modelo.addAttribute("user",
-                servicioUser.buscarId(id).get());
+                servicioUser.buscarId(num).get());
         return "editar_usuario";
     }
 
