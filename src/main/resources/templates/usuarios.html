@@ -16,6 +16,7 @@
 
 <main>
     <div class="container">
+        <a th:href="@{/nuevo}" class="btn btn-success">Añadir</a>
         <table class="table table-sm">
             <thead>
             <tr>
@@ -27,7 +28,10 @@
             <tr th:each="usuario :${user} ">
                 <th scope="row" th:text="${usuario.idUsuario}">1</th>
                 <td th:text="${usuario.nombres}">Mark</td>
-                <td></td>
+                <td>
+                    <a th:href="@{/editar/{id}(id=${usuario.idUsuario})}" class="btn btn-info">Editar</a> |
+                    <a th:href="@{/borrar/{id}(id=${usuario.idUsuario})}" class="btn btn-danger">Borrar</a>
+                </td>
             </tr>
 
             </tbody>
