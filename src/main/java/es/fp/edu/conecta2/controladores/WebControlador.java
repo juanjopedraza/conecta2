@@ -37,13 +37,14 @@ public class WebControlador {
     @RequestMapping ("/editar/{num}")
     public String editarUser(@PathVariable int num, Model modelo){
 
-        modelo.addAttribute("user",
+      modelo.addAttribute("user",
                 servicioUser.buscarId(num).get());
         return "editar_usuario";
     }
 
     @PostMapping ("/actualizar")
     public String actualizaUser(@ModelAttribute("user") User usuario){
+
         servicioUser.guardarId(usuario);
 
         return "redirect:/";

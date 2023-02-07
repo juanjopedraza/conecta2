@@ -25,12 +25,14 @@ public class UserService {
 
 
     public Optional<User> buscarId(Integer id){
+
         return Optional.of(repo.findById(id).get());
     }
 
 
     public void guardarId(User t) {
-        repo.actualizaId(t.getIdUsuario(),t.getNombres());
+
+        int i = repo.actualizaId(t.getIdUsuario(), t.getNombres());
     }
 }
 
