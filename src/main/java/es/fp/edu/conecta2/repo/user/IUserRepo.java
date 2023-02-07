@@ -13,4 +13,6 @@ public interface IUserRepo extends JpaRepository<User,Integer> {
     @Modifying
     @Query("update User u set u.idUsuario = ?1, u.nombres = ?2")
     int actualizaId(Integer idUsuario, String nombres);
+
+
 }

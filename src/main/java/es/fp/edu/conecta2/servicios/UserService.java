@@ -34,5 +34,9 @@ public class UserService {
 
         int i = repo.actualizaId(t.getIdUsuario(), t.getNombres());
     }
+
+    public void actualizaId(User t) {
+        repo.save(t);
+    }
 }
 

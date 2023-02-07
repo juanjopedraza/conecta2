@@ -1,6 +1,5 @@
 package es.fp.edu.conecta2.controladores;
 
-
 import es.fp.edu.conecta2.modelo.user.User;
 import es.fp.edu.conecta2.servicios.UserService;
 import io.micrometer.common.util.StringUtils;
@@ -9,10 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
 public class WebControlador {
-
 
     @Autowired
     private UserService servicioUser;
@@ -45,16 +42,16 @@ public class WebControlador {
     @PostMapping ("/actualizar")
     public String actualizaUser(@ModelAttribute("user") User usuario){
 
-        servicioUser.guardarId(usuario);
+        servicioUser.actualizaId(usuario);
 
         return "redirect:/";
     }
 
 
-    @GetMapping ("/borrar")
+    @GetMapping ("/borrar/{num}")
     public String borrarUser(Model modelo){
-        modelo.addAttribute("user",servicioUser.listarUser());
-        return "usuarios";
+        /{num}
+        return "redirect:/";
     }
 
 
