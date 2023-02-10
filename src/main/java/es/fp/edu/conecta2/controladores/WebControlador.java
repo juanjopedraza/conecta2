@@ -51,6 +51,11 @@ public class WebControlador {
         return "redirect:/";
     }
 
+    @GetMapping ("/buscar")
+    public String buscar(){
+        return "buscar";
+    }
+
     @RequestMapping("parametros/{a}/{b}/{c}")
     public String parametros( @PathVariable int a,
                               @PathVariable int b,
