@@ -13,7 +13,13 @@ public class WebControlador {
 
     @Autowired
     private UserService servicioUser;
+
     @GetMapping ("/")
+    public String inicio(Model modelo){
+
+        return "inicio";
+    }
+    @GetMapping ("/listado")
     public String listarUser(Model modelo){
         modelo.addAttribute("user",servicioUser.listarUser());
         return "usuarios";
